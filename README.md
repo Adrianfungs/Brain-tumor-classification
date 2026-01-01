@@ -51,6 +51,28 @@ The project expects the following directory structure:
     /Testing
         (same structure)
 ```
+## Results Summary
+
+### Internal Test Set Performance
+The models were evaluated on a standard test split from the primary dataset (394 images):
+
+| Model | Test Accuracy | Glioma F1 | Meningioma F1 | No Tumor F1 | Pituitary F1 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **VGG16** | **98.22%** | 0.96 | 0.97 | 1.00 | 1.00 |
+| **DenseNet121** | 96.19% | 0.92 | 0.95 | 0.99 | 0.99 |
+| **EfficientNet-B0** | 94.92% | 0.90 | 0.95 | 0.96 | 1.00 |
+
+### External Data Validation
+To test for real-world generalization, the models were validated against a larger external dataset (7,023 images):
+
+| Model | External Accuracy | Precision (Macro) | Recall (Macro) | F1-Score (Macro) |
+| :--- | :--- | :--- | :--- | :--- |
+| **VGG16** | **96.34%** | 0.96 | 0.96 | 0.96 |
+| **EfficientNet-B0** | 94.69% | 0.95 | 0.95 | 0.95 |
+| **DenseNet121** | 94.67% | 0.95 | 0.95 | 0.95 |
+
+## Conclusion
+While all models performed exceptionally well, **VGG16** emerged as the top performer, achieving the highest accuracy on both the internal and external datasets. Across all models, "No Tumor" and "Pituitary" classes showed the highest classification reliability, while "Glioma" and "Meningioma" presented the most complexity due to overlapping visual features.
 
 ## Source
 * Dataset for training: https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri
